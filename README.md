@@ -4,6 +4,8 @@ The project was developed using:
   - MySQL database
   - Gradle
 
+Instructions
+
 1. Download the ZIP file with the project
 
 2. Add your database in the config file located at:
