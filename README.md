@@ -1,8 +1,8 @@
 The project was developed using:
-  Spring Boot and the OkHttp library for the backend app
-  React.js for the frontend app
-  MySQL database
-  Gradle
+  - Spring Boot and the OkHttp library for the backend app
+  - React.js for the frontend app
+  - MySQL database
+  - Gradle
 
 1. Download the ZIP file with the project
 
