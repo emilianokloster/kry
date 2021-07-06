@@ -6,7 +6,7 @@ import java.util.concurrent.TimeUnit;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.emilianokloster.kry.entities.Endpoint;
+import com.emilianokloster.kry.model.Endpoint;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -21,6 +21,11 @@ public class ApiPoller {
 	@Autowired
 	private EndpointService endpointService;
 	
+	/*
+	 * There are many options available to customize this http client
+	 * in charge of API's validation. It's possible to set timeouts,
+	 * cache memory, accept redirect, autentication to private API's...
+	 */
 	private OkHttpClient httpClient() {
 		if (client == null)
 			client = new OkHttpClient.Builder()
@@ -32,14 +37,12 @@ public class ApiPoller {
 	}
 
     public void poll() {
-    	endpointService.getAll().stream()
-    		.map(Endpoint::getUrl)
-    		.forEach(url -> asyncRequest(url));
+    	endpointService.getAll().forEach(ep -> asyncRequest(ep));
     }
     
-    private void asyncRequest(String url) {
+    private void asyncRequest(Endpoint ep) {
 		Request request = new Request.Builder()
-				.url(url)
+				.url(ep.getUrl())
 				.build();
 		
 		Call call = httpClient().newCall(request);
@@ -47,13 +50,14 @@ public class ApiPoller {
 			
 			@Override
 			public void onResponse(Call call, Response response) throws IOException {
-		    	System.out.println(response.request().url());
-				System.out.println(response.code());
+				ep.setStatus(response.code() == 200 ? "OK" : "FAIL");
+				System.out.println(ep.getName() + ": " + ep.getStatus());
 			}
 			
 			@Override
 			public void onFailure(Call call, IOException e) {
 				System.out.println(e.getMessage());
+				ep.setStatus("FAIL");
 			}
 		});
     }

@@ -1,0 +1,219 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 23px;
+  background-color: #d2caff;
+  padding: 20px;
+  position: sticky;
+  top: 0;
+  border: solid 1px #333;
+  height: 58px;
+}
+
+.nav-menu {
+  list-style-type: none;
+  display: flex;
+  font-size: 18px;
+  font-weight: normal;
+  line-height: 20px;
+}
+
+.home-link {
+  color: rgba(10,22,31,1);
+}
+
+.nav-menu li {
+  padding: 0 20px;
+}
+
+.navbar .links {
+  margin: 10px;
+  text-decoration: none;
+  color: rgb(2, 18, 27);
+}
+
+/* EndpointsPage */
+
+.endpoints-page {
+  background-color: #fff;
+  padding: 15px;
+}
+
+.endpoints-page .black-btn {
+  position: sticky;
+  top: 0;
+}
+
+.black-btn {
+  margin: auto;
+  padding: 20px;
+
+  color: #fff;
+  background-color: #111;
+
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
+  line-height: 18px;
+  text-align: center;
+  text-decoration: none;
+
+  display: block;
+  max-width: 300px;
+
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.black-btn:hover {
+  background-color: #334;
+}
+
+.endpoints-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-row-gap: 20px;
+
+  background-color: #d2caff;
+  padding: 20px;
+  margin: 15px;
+  border-radius: 15px;
+}
+
+.endpoint {
+    padding: 10px;
+    text-align: center;
+}
+
+.ep-name {
+    background-color: #fff;
+    border-right: none;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+.ep-status {
+    background-color: #6e6edc;
+    border-left: none;
+    border-right: none;
+}
+
+.ep-details-link {
+    background-color: #fff;
+    border-left: none;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.ep-details-link a, .ep-details-link a:visited {
+  color: #444;
+}
+
+.ep-details-link a:hover {
+  color: #000;
+}
+
+/* AddEndpoint */
+
+.add-endpoint {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.add-endpoint form {
+  padding: 15px 25px;
+  background-color: #d2caff;
+  border-radius: 15px;
+}
+
+.add-endpoint h2 {
+  font-size: 20px;
+  margin: 30px;
+}
+
+.add-endpoint label {
+  display: block;
+  text-align: left;
+}
+
+.add-endpoint input, .add-endpoint textarea {
+  width: 100%;
+  padding: 8px 12px;
+  margin: 10px 0;
+  border: none;
+  box-sizing: border-box;
+  display: block;
+  resize: none;
+  outline: none;
+  font-size: 18px;
+  border-radius: 15px;
+}
+
+/* EndpointDetail */
+
+.endpoint-detail {
+  max-width: 700px;
+  margin: 0 auto;
+  margin-top: 20px;
+  padding: 10px 25px;
+  background-color: #d2caff;
+  border-radius: 15px;
+}
+
+.endpoint-detail h2 {
+  margin: 20px;
+}
+
+.endpoint-detail p {
+  margin: 20px;
+}
+
+.endpoint-detail .url {
+  margin-top: 10px;
+}
+
+.dates p {
+  display: inline;
+}
+
+.decorated-span {
+  background-color: #fff;
+  font-weight: bold;
+  padding: 5px 10px;
+  margin: 10px;
+  border-radius: 15px;
+}
+
+.comment .decorated-span {
+  display: block;
+  margin: 0;
+  width: 100%;
+  min-height: 100px;
+  font-weight: normal;
+}
+
+.btns {
+  text-align: center;
+}
+
+.endpoint-detail .black-btn {
+  display: inline;
+  margin: 5px 20px;
+}

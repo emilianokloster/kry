@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,9 +12,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.emilianokloster.kry.domain.EndpointService;
-import com.emilianokloster.kry.entities.Endpoint;
+import com.emilianokloster.kry.model.Endpoint;
+
+/*
+ * This REST API is intended to be consumed by any front-end technology.
+ */
 
 @RestController
+@CrossOrigin
 public class EndpointController {
 	
 	@Autowired
@@ -25,10 +31,8 @@ public class EndpointController {
 	}
 	
 	@RequestMapping("/endpoints/{id}")
-	private Endpoint get(@PathVariable String id) {
-		Optional<Endpoint> endpoint = endpointService.get(id); 
-		return endpoint.isPresent() ? endpoint.get() : null;
-//		return endpointService.get(id);
+	private Endpoint get(@PathVariable Long id) {
+		return endpointService.get(id);
 	}
 	
 	@RequestMapping(method = RequestMethod.POST, value = "/endpoints")
@@ -37,12 +41,12 @@ public class EndpointController {
 	}
 	
 	@RequestMapping(method = RequestMethod.PUT, value = "/endpoints/{id}")
-	public void update(@RequestBody Endpoint topic, @PathVariable String id	) {
+	public void update(@RequestBody Endpoint topic, @PathVariable Long id	) {
 		endpointService.update(topic, id);
 	}
 	
 	@RequestMapping(method = RequestMethod.DELETE, value = "/endpoints/{id}")
-	public void delete(@PathVariable String id	) {
+	public void delete(@PathVariable Long id	) {
 		endpointService.delete(id);
 	}
 	

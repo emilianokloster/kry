@@ -1,0 +1,22 @@
+{
+  "endpoints": [
+    {
+      "id": "1",
+      "url": "http://emilianokloster.com",
+      "name": "Emiliano",
+      "status": ""
+    },
+    {
+      "id": "2",
+      "url": "http://en.wikipedia.org",
+      "name": "Wikipedia",
+      "status": ""
+    },
+    {
+      "id": "3",
+      "url": "http://spring.io",
+      "name": "Spring",
+      "status": ""
+    }
+  ]
+}

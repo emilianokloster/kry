@@ -14,6 +14,11 @@ public class AppScheduler {
 	@Autowired
 	private ApiPoller apiPoller;
 	
+	/*
+	 * This is the method that executes the polling service.
+	 * Time is currently set in miliseconds.
+	 * The client will need 10 seconds before data is updated
+	 */
 	@Scheduled(fixedRate = 10000)
 	public void polling() {
 		apiPoller.poll();
